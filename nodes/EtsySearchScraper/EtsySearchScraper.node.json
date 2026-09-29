@@ -1,0 +1,31 @@
+{
+	"node": "n8n-nodes-scrapeunblocker-etsy.etsySearchScraper",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Sales",
+		"Data & Storage"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/ScrapeUnblocker/n8n-nodes-scrapeunblocker-etsy#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/ScrapeUnblocker/n8n-nodes-scrapeunblocker-etsy#readme"
+			}
+		]
+	},
+	"alias": [
+		"etsy",
+		"handmade",
+		"listings",
+		"products",
+		"prices",
+		"scraper",
+		"apify",
+		"scrapeunblocker"
+	]
+}
