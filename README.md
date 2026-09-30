@@ -67,6 +67,7 @@ Pick a **Resource** and an **Operation**. Each n8n input item starts one Apify r
 
 | Option | Description |
 |---|---|
+| **Include Sponsored** | Whether to also return Etsy's paid ad placements (marked sponsored). Off by default: Etsy mixes ads into every page regardless of the search order and sort. |
 | **Max Price** | Highest price to include, as a whole number in the result currency (USD by default). 0 means no upper limit. |
 | **Min Price** | Lowest price to include, as a whole number in the result currency (USD by default). |
 | **Proxy Country** | Exit-IP country (ISO-2, e.g. DE). Etsy may localize prices and language to it. Defaults to US (USD prices). |
@@ -90,20 +91,23 @@ The node can be attached to an n8n **AI Agent** as a tool, so the agent can call
 ## Output
 
 - One item per listing, with title, price and currency, shop name, image and the listing URL.
+- Paid ad placements are left out unless you turn on Include Sponsored.
 
-Fields of a returned item: `id`, `title`, `price`, `currency`, `shop`, `image`, `url`.
+Fields of a returned item: `id`, `title`, `price`, `currency`, `currencySymbol`, `sponsored`, `shop`, `image`, `url`.
 
 Example item (shortened):
 
 ```json
 {
-  "id": "655297979",
-  "title": "FIVE FOR ONE - Vintage Ring Surprise Mix Collection 5 Womens Rings Handmade J...",
-  "price": 150,
-  "currency": "$",
-  "shop": "Ad ・ By PVDVintageJewelry Ad from shop PVDVintageJewelry",
-  "image": "https://i.etsystatic.com/8652207/r/il/508693/6222677327/il_255x319.6222677327...",
-  "url": "https://www.etsy.com/listing/655297979/five-for-one-vintage-ring-surprise-mix"
+  "id": "4527711410",
+  "title": "D Shape Sleeper Earrings, Open Hoop Earrings, Backless Half Hoops, Dainty Car...",
+  "price": 28.9,
+  "currency": "USD",
+  "currencySymbol": "$",
+  "sponsored": false,
+  "shop": "By WaterAndStarJewelry From shop WaterAndStarJewelry",
+  "image": "https://i.etsystatic.com/53612799/r/il/772458/8201405610/il_255x319.820140561...",
+  "url": "https://www.etsy.com/listing/4527711410/d-shape-sleeper-earrings-open-hoop"
 }
 ```
 
@@ -176,3 +180,4 @@ Tested with n8n 2.40 (self-hosted).
 
 - 0.1.0: Initial release
 - 0.1.1: First release published from GitHub Actions with an npm provenance statement
+- 0.1.2: Include Sponsored option - paid ad placements are left out by default
