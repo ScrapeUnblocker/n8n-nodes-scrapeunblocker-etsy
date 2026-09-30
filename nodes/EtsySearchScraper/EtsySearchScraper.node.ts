@@ -31,6 +31,9 @@ const OPTION_FIELDS: Record<string, OptionField> = {
 		key: 'proxy_country',
 		kind: 'upper',
 	},
+	includeSponsored: {
+		key: 'include_sponsored',
+	},
 };
 
 function buildActorInput(
@@ -157,6 +160,14 @@ export class EtsySearchScraper implements INodeType {
 				placeholder: 'Add Option',
 				default: {},
 				options: [
+					{
+						displayName: 'Include Sponsored',
+						name: 'includeSponsored',
+						type: 'boolean',
+						default: false,
+						description:
+							"Whether to also return Etsy's paid ad placements (marked sponsored). Off by default: Etsy mixes ads into every page regardless of the search order and sort.",
+					},
 					{
 						displayName: 'Max Price',
 						name: 'maxPrice',
